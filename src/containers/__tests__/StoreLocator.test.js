@@ -1,13 +1,31 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import StoreLocator from '../StoreLocator';
+import { configure, shallow } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+import StoreLocator from "../StoreLocator";
 
-test('renders learn react link', () => {
-    const div = document.createElement('div');
-    const root = createRoot(div);
-    root.render(<StoreLocator />);
-});
+configure({ adapter: new Adapter() });
 
-test('sample test', () => {
-    expect(2 + 2).toBe(4);
+describe("StoreLocator", function () {
+  let mountedStoreLocator;
+  beforeEach(() => {
+    mountedStoreLocator = shallow(<StoreLocator />);
+  });
+
+  it("renders without crashing", () => {
+    let mountedStoreLocator = shallow(<StoreLocator />);
+  });
+
+  it("renders a header", () => {
+    const headers = mountedStoreLocator.find("Header");
+    expect(headers.length).toBe(1);
+  });
+
+  it("renders two buttons", () => {
+    const buttons = mountedStoreLocator.find("Button");
+    expect(buttons.length).toBe(3);
+  });
+
+  it("renders a map", () => {
+    const map = mountedStoreLocator.find("Map");
+    expect(map.length).toBe(1);
+  });
 });
