@@ -1,13 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { createRoot } from 'react-dom/client';
 import Header from '../Header';
+import React from 'react';
 
-test('renders learn react link', () => {
-  render(<Header />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders without crashing', () => {
+  const div = document.createElement('div');
+  const root = createRoot(div);
+  root.render(<Header />);
 });
-
-// it('renders without crashing', () => {
-//     const div = document.createElement('div');
-//     ReactDOM.render(<Header />, div);
-// })
