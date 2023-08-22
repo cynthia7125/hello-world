@@ -6,8 +6,8 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/user-event": "^13.5.0",
     "jest": "^27.5.1",
-    "react": "^0.0.0-experimental-98f3f14d2-20230818",
-    "react-dom": "^0.0.0-experimental-98f3f14d2-20230818",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
+    "axios": "^1.4.0",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.15.7"
   }
