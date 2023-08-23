@@ -68,3 +68,25 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Snapshot Testing
+
+- Snapshots complement conventional tests.
+- They test less clearly defined aspects eg `styles` and `spellings`.
+- Helps test things that may change consistently eg `CSS`.
+- They are not used for critical logic.
+- Neither are they used for understanding developer expectations.
+
+### How it was used
+- first import renderer
+```
+import renderer from "react-test-renderer";
+```
+
+```
+it('renders correctly', () => {
+    const tree = renderer.create(<StoreLocator />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
+```

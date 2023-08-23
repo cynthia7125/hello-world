@@ -2,6 +2,7 @@ import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import StoreLocator from "../StoreLocator";
 import axios from "axios";
+import renderer from "react-test-renderer";
 
 jest.mock("axios");
 
@@ -12,6 +13,11 @@ describe("StoreLocator", function () {
   beforeEach(() => {
     mountedStoreLocator = shallow(<StoreLocator />);
   });
+
+  it('renders correctly', () => {
+    const tree = renderer.create(<StoreLocator />).toJSON();
+    expect(tree).toMatchSnapshot();
+  })
 
   it("calls axios.get in #componentDidMount", () => {
     return mountedStoreLocator
