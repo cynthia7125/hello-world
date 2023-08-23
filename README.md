@@ -90,3 +90,10 @@ it('renders correctly', () => {
     expect(tree).toMatchSnapshot();
 });
 ```
+
+
+## Check Test Coverage
+
+```
+npm test -- --coverage
+```
