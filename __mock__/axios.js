@@ -1,23 +1,26 @@
-const axiosMock = jest.genMockFromModule("axios");
+// const axios = require('axios');
+
+const axiosMock = jest.createMockFromModule('axios');
 
 let mockResponse = {
   data: {
     shops: [
       {
-        location: "test location",
-        address: "test address",
+        location: 'test location',
+        address: 'test address',
       },
     ],
   },
 };
+
 axiosMock.get.mockImplementation(req);
 
 function req() {
   return new Promise(function (resolve) {
     axiosMock.delayTimer = setTimeout(function () {
       resolve(mockResponse);
-    }, 1000);
+    }, 100);
   });
 }
 
-module.exports = axiosMock;
+export default axiosMock;
